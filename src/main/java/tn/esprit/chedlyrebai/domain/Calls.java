@@ -38,4 +38,60 @@ public class Calls {
     @JoinColumn(name = "ai_system_id")
     private AISystems assignedAISystem;
 
+    public Long getCallId() {
+        return callId;
+    }
+
+    public void setCallId(Long callId) {
+        this.callId = callId;
+    }
+
+    public LocalDateTime getCallsDateTime() {
+        return callsDateTime;
+    }
+
+    public void setCallsDateTime(LocalDateTime callsDateTime) {
+        this.callsDateTime = callsDateTime;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Set<Skills> getRequiredSkills() {
+        return requiredSkills;
+    }
+
+    public void setRequiredSkills(Set<Skills> requiredSkills) {
+        this.requiredSkills = requiredSkills;
+    }
+
+    public CallStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(CallStatus status) {
+        this.status = status;
+    }
+
+    public Agent getAssignedAgent() {
+        return assignedAgent;
+    }
+
+    public void setAssignedAgent(Agent assignedAgent) {
+        this.assignedAgent = assignedAgent;
+    }
+
+    public AISystems getAssignedAISystem() {
+        return assignedAISystem;
+    }
+
+    public void setAssignedAISystem(AISystems assignedAISystem) {
+        this.assignedAISystem = assignedAISystem;
+    }
+
 }

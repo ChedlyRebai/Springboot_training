@@ -12,5 +12,4 @@ import tn.esprit.chedlyrebai.domain.Calls;
 @Repository
 public interface CallsRepositories extends ICallsRepositories, CrudRepository<Calls, Long> {
 
- 
 }
