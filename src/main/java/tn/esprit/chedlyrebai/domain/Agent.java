@@ -13,8 +13,10 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
+import lombok.Data;
 
 @Entity
+@Data
 public class Agent {
      @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
