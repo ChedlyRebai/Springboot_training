@@ -12,5 +12,5 @@ public interface ICallsRepositories extends CrudRepository<Calls, Long> {
     void deleteById(Long callId);
     Calls save(Calls calls);
     Optional<Calls> findById(Long callId);
-    void updateCalls(Long callId, Calls calls);
+    //void updateCalls(Long callId, Calls calls);
 }

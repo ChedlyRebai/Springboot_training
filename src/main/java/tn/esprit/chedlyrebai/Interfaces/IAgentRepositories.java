@@ -13,5 +13,5 @@ public interface IAgentRepositories extends JpaRepository<Agent, Long> {
     void deleteById(Long agentId);
     Agent save(Agent agent);
     Optional<Agent> findById(Long agentId);
-    void updateAgent(Long agentId, Agent agent);
+   // void updateAgent(Long agentId, Agent agent);
 }

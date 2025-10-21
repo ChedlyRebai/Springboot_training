@@ -1,13 +1,13 @@
-package tn.esprit.chedlyrebai.Interfaces;
+package tn.esprit.chedlyrebai.repositories;
 import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
+import tn.esprit.chedlyrebai.Interfaces.IAISystemsRepositories;
 import tn.esprit.chedlyrebai.domain.AISystems;
-public interface AISystemsRepositories extends CrudRepository<AISystems, Long> {
 
-    void deleteById(Long aiSystemId);
-    AISystems save(AISystems aiSystems);
-    Optional<AISystems> findById(Long aiSystemId);
-    void updateAISystems(Long aiSystemId, AISystems aiSystems);
+@Repository
+public interface AISystemsRepositories extends IAISystemsRepositories, CrudRepository<AISystems, Long> {
+
 }

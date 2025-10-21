@@ -1,16 +1,17 @@
-package tn.esprit.chedlyrebai.Interfaces;
+package tn.esprit.chedlyrebai.repositories;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
+import tn.esprit.chedlyrebai.Interfaces.IProjectRepositories;
 import tn.esprit.chedlyrebai.domain.AISystems;
 import tn.esprit.chedlyrebai.domain.ProjectDetails;
 
-public interface ProjectRepositories extends JpaRepository<ProjectDetails, Long> {
-    void deleteById(Long projectId);
-    ProjectDetails save(ProjectDetails projectDetails);
-    Optional<ProjectDetails> findById(Long projectId);
-    void  updateProjectDetails(Long projectId, ProjectDetails projectDetails);
+
+@Repository
+public interface ProjectRepositories extends IProjectRepositories, CrudRepository<ProjectDetails, Long> {
+
 }

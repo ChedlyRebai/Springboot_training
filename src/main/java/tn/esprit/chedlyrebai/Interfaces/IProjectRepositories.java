@@ -12,5 +12,5 @@ public interface IProjectRepositories extends JpaRepository<ProjectDetails, Long
     void deleteById(Long projectId);
     ProjectDetails save(ProjectDetails projectDetails);
     Optional<ProjectDetails> findById(Long projectId);
-    void  updateProjectDetails(Long projectId, ProjectDetails projectDetails);
+  //  void  updateProjectDetails(Long projectId, ProjectDetails projectDetails);
 }
