@@ -9,9 +9,10 @@ import org.springframework.stereotype.Repository;
 import tn.esprit.chedlyrebai.Interfaces.IProjectRepositories;
 import tn.esprit.chedlyrebai.domain.AISystems;
 import tn.esprit.chedlyrebai.domain.ProjectDetails;
+import tn.esprit.chedlyrebai.domain.Projects;
 
 
 @Repository
-public interface ProjectRepositories extends IProjectRepositories, CrudRepository<ProjectDetails, Long> {
+public interface ProjectRepositories extends IProjectRepositories, CrudRepository<Projects, Long> {
 
 }
