@@ -13,9 +13,7 @@ import tn.esprit.chedlyrebai.repositories.AISystemsRepositories;
 @RequiredArgsConstructor
 public class AIsystemService implements IAISystemService {
 
-    private  final AISystemsRepositories aiSystemsRepositories;
-    
-    
+    private final AISystemsRepositories aiSystemsRepositories;
 
     @Override
     public void createAISystem(AISystems createdAISystem) {
@@ -42,5 +40,5 @@ public class AIsystemService implements IAISystemService {
     public AISystems getAISystemById(Long id) {
         return this.aiSystemsRepositories.findById(id).orElse(null);
     }
-    
+
 }

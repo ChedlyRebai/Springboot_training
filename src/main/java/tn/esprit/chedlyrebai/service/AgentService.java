@@ -38,8 +38,6 @@ public class AgentService implements IAgentSevice {
         }
     }
 
-
-    
     @Override
     public void deleteAgent(Long id) {
         Optional<Agent> agent = this.agentRepo.findById(id);
