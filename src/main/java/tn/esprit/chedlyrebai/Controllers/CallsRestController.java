@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import tn.esprit.chedlyrebai.domain.Calls;
 import tn.esprit.chedlyrebai.repositories.CallsRepositories;
+import tn.esprit.chedlyrebai.service.CallService;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,29 +19,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class CallsRestController {
 	
 
-    private CallsRepositories callsRepositories;
+    private CallService callsService
+    ;
 
-    public CallsRestController(CallsRepositories callsRepositories) {
-        this.callsRepositories = callsRepositories;
+    public CallsRestController(CallService callsService) {
+        this.callsService = callsService;
     }
 
     @GetMapping
     public Iterable<Calls> getAllCalls() {
-        return this.callsRepositories.findAll();
+        return this.callsService.getAllCalls();
     }  
     
     @PostMapping("save")
     public String addCalls(@RequestBody Calls entity) {
-        this.callsRepositories.save(entity);
+        this.callsService.createCall(entity);
         return "Call added successfully";
     }
-
-    @DeleteMapping("/delete")
-    public String deleteCalls(@RequestParam Long callId) {
-        this.callsRepositories.deleteById(callId);
-        return "Call deleted successfully";
     
+    @DeleteMapping("delete")
+    public String deleteCalls(@RequestParam Long id) {
+        this.callsService.deleteCall(id);
+        return "Call deleted successfully";
     }
+
+
+
+
     
     
 }

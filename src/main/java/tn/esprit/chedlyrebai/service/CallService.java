@@ -4,6 +4,8 @@ package tn.esprit.chedlyrebai.service;
 
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 
@@ -17,13 +19,13 @@ public class CallService implements ICallsService{
 
     private final CallsRepositories  callRepository;
     @Override
-    public void getAllCalls() {
-        this.callRepository.findAll();
+    public List<Calls> getAllCalls() {
+        return this.callRepository.findAll();
     }
 
     @Override
-    public void getCallById(Long id) {
-        this.callRepository.findById(id).orElse(null);
+    public Calls getCallById(Long id) {
+        return this.callRepository.findById(id).orElse(null);
     }
 
    
