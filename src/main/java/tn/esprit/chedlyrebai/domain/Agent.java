@@ -18,13 +18,14 @@ import lombok.Data;
 @Entity
 @Data
 public class Agent {
-     @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long agentId;
 
     private String name;
     private boolean available;
 
+    
     @ElementCollection(targetClass = Skills.class)
     @Enumerated(EnumType.STRING)
     private Set<Skills> skills;
