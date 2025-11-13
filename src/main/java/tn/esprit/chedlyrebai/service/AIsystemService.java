@@ -2,9 +2,11 @@ package tn.esprit.chedlyrebai.service;
 
 import org.springframework.stereotype.Service;
 
+import lombok.RequiredArgsConstructor;
 import tn.esprit.chedlyrebai.Interfaces.IAISystemService;
 
 @Service
+@RequiredArgsConstructor
 public class AIsystemService implements IAISystemService {
 
     @Override

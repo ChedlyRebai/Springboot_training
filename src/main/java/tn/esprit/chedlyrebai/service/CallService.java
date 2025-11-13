@@ -5,9 +5,11 @@ package tn.esprit.chedlyrebai.service;
 import org.aspectj.weaver.ast.Call;
 import org.springframework.stereotype.Service;
 
+import lombok.RequiredArgsConstructor;
 import tn.esprit.chedlyrebai.Interfaces.ICallsService;
 
 @Service
+@RequiredArgsConstructor
 public class CallService implements ICallsService{
 
     @Override

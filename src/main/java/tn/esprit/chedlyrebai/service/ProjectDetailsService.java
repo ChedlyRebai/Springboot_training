@@ -2,18 +2,18 @@ package tn.esprit.chedlyrebai.service;
 
 import org.springframework.stereotype.Service;
 
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import tn.esprit.chedlyrebai.Interfaces.IProjectDetailsService;
+import tn.esprit.chedlyrebai.Interfaces.ProjectDetailsRepositories;
 import tn.esprit.chedlyrebai.domain.ProjectDetails;
 
 @Service
+@RequiredArgsConstructor
 public class ProjectDetailsService implements IProjectDetailsService {
 
-    @Override
-    public ProjectDetails getProjectDetailsById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getProjectDetailsById'");
-    }
-
+    private final ProjectDetailsRepositories projectDetailsRepositories;
+    
     @Override
     public void createProjectDetails(ProjectDetails createdProjectDetails) {
         // TODO Auto-generated method stub
@@ -30,6 +30,12 @@ public class ProjectDetailsService implements IProjectDetailsService {
     public void deleteProjectDetails(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'deleteProjectDetails'");
+    }
+
+    @Override
+    public ProjectDetails getProjectDetailsById(Long id) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getProjectDetailsById'");
     }
     
 }
