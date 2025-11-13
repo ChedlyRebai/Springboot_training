@@ -1,5 +1,7 @@
 package tn.esprit.chedlyrebai.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -13,13 +15,13 @@ public class ProjectService  implements IProjectService {
 
     private final ProjectRepositories projectRepositories;
     @Override
-    public void getAllProjects() {
-        this.projectRepositories.findAll();
+    public List<Projects> getAllProjects() {
+        return this.projectRepositories.findAll();
     }
 
     @Override
-    public void getProjectById(Long id) {
-        this.projectRepositories.findById(id).orElse(null);
+    public Projects getProjectById(Long id) {
+        return this.projectRepositories.findById(id).orElse(null);
     }
 
 

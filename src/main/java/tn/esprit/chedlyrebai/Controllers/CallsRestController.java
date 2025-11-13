@@ -19,8 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class CallsRestController {
 	
 
-    private CallService callsService
-    ;
+    private CallService callsService;
 
     public CallsRestController(CallService callsService) {
         this.callsService = callsService;
