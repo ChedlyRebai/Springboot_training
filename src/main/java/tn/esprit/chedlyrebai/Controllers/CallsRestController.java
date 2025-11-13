@@ -7,6 +7,8 @@ import tn.esprit.chedlyrebai.domain.Calls;
 import tn.esprit.chedlyrebai.repositories.CallsRepositories;
 import tn.esprit.chedlyrebai.service.CallService;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,7 +28,7 @@ public class CallsRestController {
     }
 
     @GetMapping
-    public Iterable<Calls> getAllCalls() {
+    public List<Calls> getAllCalls() {
         return this.callsService.getAllCalls();
     }  
     
