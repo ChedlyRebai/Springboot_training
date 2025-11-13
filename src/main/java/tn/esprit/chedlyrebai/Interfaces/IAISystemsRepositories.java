@@ -9,5 +9,6 @@ public interface IAISystemsRepositories extends CrudRepository<AISystems, Long> 
     void deleteById(Long aiSystemId);
     AISystems save(AISystems aiSystems);
     Optional<AISystems> findById(Long aiSystemId);
+    void updateAISystems(Long aiSystemId, AISystems aiSystems);
    // void updateAISystems(Long aiSystemId, AISystems aiSystems);
 }
