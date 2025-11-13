@@ -13,29 +13,35 @@ import tn.esprit.chedlyrebai.domain.ProjectDetails;
 public class ProjectDetailsService implements IProjectDetailsService {
 
     private final ProjectDetailsRepositories projectDetailsRepositories;
-    
+
     @Override
     public void createProjectDetails(ProjectDetails createdProjectDetails) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createProjectDetails'");
+        this.projectDetailsRepositories.save(createdProjectDetails);
     }
 
     @Override
     public void updateProjectDetails(Long id, ProjectDetails updatedProjectDetails) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateProjectDetails'");
+        ProjectDetails existingProjectDetails = this.projectDetailsRepositories.findById(id).get();
+        if (existingProjectDetails == null) {
+            return;
+        } else {
+            // Update fields of existingProjectDetails with values from
+            // updatedProjectDetails
+            existingProjectDetails = updatedProjectDetails;
+        }
+        // Update fields of existingProjectDetails with values from
+        // updatedProjectDetails
+        this.projectDetailsRepositories.save(existingProjectDetails);
     }
 
     @Override
     public void deleteProjectDetails(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteProjectDetails'");
+        this.projectDetailsRepositories.deleteById(id);
     }
 
     @Override
     public ProjectDetails getProjectDetailsById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getProjectDetailsById'");
+        return this.projectDetailsRepositories.findById(id).orElse(null);
     }
-    
+
 }

@@ -2,44 +2,53 @@
 package tn.esprit.chedlyrebai.service;
 
 
-import org.aspectj.weaver.ast.Call;
+import lombok.RequiredArgsConstructor;
+
 import org.springframework.stereotype.Service;
 
-import lombok.RequiredArgsConstructor;
+
 import tn.esprit.chedlyrebai.Interfaces.ICallsService;
+import tn.esprit.chedlyrebai.domain.Calls;
+import tn.esprit.chedlyrebai.repositories.CallsRepositories;
 
 @Service
 @RequiredArgsConstructor
 public class CallService implements ICallsService{
 
+    private final CallsRepositories  callRepository;
     @Override
     public void getAllCalls() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAllCalls'");
+        this.callRepository.findAll();
     }
 
     @Override
     public void getCallById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getCallById'");
+        this.callRepository.findById(id).orElse(null);
     }
 
-    @Override
-    public void createCall(Call createdCall) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createCall'");
-    }
-
-    @Override
-    public void updateCall(Long id, Call updatedCall) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateCall'");
-    }
+   
 
     @Override
     public void deleteCall(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteCall'");
+        this.callRepository.deleteById(id);
+    }
+
+    @Override
+    public void createCall(Calls createdCall) {
+        this.callRepository.save(createdCall);
+    }
+
+    @Override
+    public void updateCall(Long id, Calls updatedCall) {
+        Calls existingCall= this.callRepository.findById(id).get();
+        if(existingCall==null){
+            return;
+        }else{
+            // Update fields of existingCall with values from updatedCall
+            existingCall=updatedCall;
+        }
+        // Update fields of existingCall with values from updatedCall
+        this.callRepository.save(existingCall);
     }
 
 }

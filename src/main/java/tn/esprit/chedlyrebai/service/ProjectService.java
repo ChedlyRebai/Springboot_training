@@ -5,37 +5,46 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import tn.esprit.chedlyrebai.Interfaces.IProjectService;
 import tn.esprit.chedlyrebai.domain.Projects;
+import tn.esprit.chedlyrebai.repositories.ProjectRepositories;
 
 @Service
 @RequiredArgsConstructor
 public class ProjectService  implements IProjectService {
 
+    private final ProjectRepositories projectRepositories;
     @Override
     public void getAllProjects() {
-        // Implementation here
+        this.projectRepositories.findAll();
     }
 
     @Override
     public void getProjectById(Long id) {
-        // Implementation here
+        this.projectRepositories.findById(id).orElse(null);
     }
 
 
     @Override
     public void deleteProject(Long id) {
-        // Implementation here
+        this.projectRepositories.deleteById(id);
     }
 
     @Override
     public void createProject(Projects createdProject) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createProject'");
+        this.projectRepositories.save(createdProject);
     }
 
     @Override
     public void updateProject(Long id, Projects updatedProject) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateProject'");
+       
+        Projects existingProject= this.projectRepositories.findById(id).get();
+        if (existingProject == null) {
+            return;
+        } else {
+            // Update fields of existingProject with values from updatedProject
+            existingProject = updatedProject;
+        }
+        // Update fields of existingProject with values from updatedProject
+        this.projectRepositories.save(existingProject);
     }
     
 }

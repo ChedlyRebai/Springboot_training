@@ -1,9 +1,13 @@
 package tn.esprit.chedlyrebai.Interfaces;
 
+import java.util.List;
+
+import tn.esprit.chedlyrebai.domain.AISystems;
+
 public interface IAISystemService {
-    void getAllAISystems();
-    void getAISystemById(Long id);
-    void createAISystem(Object createdAISystem);
-    void updateAISystem(Long id, Object updatedAISystem);
+    List<AISystems> getAllAISystems();
+    AISystems getAISystemById(Long id);
+    void createAISystem(AISystems createdAISystem);
+    void updateAISystem(Long id, AISystems updatedAISystem);
     void deleteAISystem(Long id);
 }

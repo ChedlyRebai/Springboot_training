@@ -1,37 +1,46 @@
 package tn.esprit.chedlyrebai.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import tn.esprit.chedlyrebai.Interfaces.IAISystemService;
+import tn.esprit.chedlyrebai.domain.AISystems;
+import tn.esprit.chedlyrebai.repositories.AISystemsRepositories;
 
 @Service
 @RequiredArgsConstructor
 public class AIsystemService implements IAISystemService {
 
+    private  final AISystemsRepositories aiSystemsRepositories;
+    
+    
+
     @Override
-    public void getAllAISystems() {
-        // Implementation here
+    public void createAISystem(AISystems createdAISystem) {
+        this.aiSystemsRepositories.save(createdAISystem);
     }
 
     @Override
-    public void getAISystemById(Long id) {
+    public void updateAISystem(Long id, AISystems updatedAISystem) {
         // Implementation here
-    }
-
-    @Override
-    public void createAISystem(Object createdAISystem) {
-        // Implementation here
-    }
-
-    @Override
-    public void updateAISystem(Long id, Object updatedAISystem) {
-        // Implementation here
+        this.aiSystemsRepositories.updateAISystems(id, updatedAISystem);
     }
 
     @Override
     public void deleteAISystem(Long id) {
-        // Implementation here
+        this.aiSystemsRepositories.deleteById(id);
+    }
+
+    @Override
+    public List<AISystems> getAllAISystems() {
+        return (List<AISystems>) this.aiSystemsRepositories.findAll();
+    }
+
+    @Override
+    public AISystems getAISystemById(Long id) {
+        return this.aiSystemsRepositories.findById(id).orElse(null);
     }
     
 }
