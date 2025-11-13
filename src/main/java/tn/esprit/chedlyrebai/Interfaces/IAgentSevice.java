@@ -9,5 +9,6 @@ public interface IAgentSevice {
     Agent updateAgent(Long id,Agent agent);
     void deleteAgent(Long id);
     List<Agent> getAllAgent();
+    Agent getAgentById(Long id);
     
 }
